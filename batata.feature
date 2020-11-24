@@ -1,7 +1,8 @@
-#languagem: pt
+#language: pt
 
-Funcionalidade: Pesquisa
-    Contexto: pesquisar google
-        Dado pesquisar batata
-        Quando pesquisar batata
-        Entao devera ser exibido uma imagem da batata
+Funcionalidade: Pesquisa de batata
+    Contexto: pesquisar batata no google
+        Dado que acessa a pagina inicial do google
+        Quando digito batata na barra de pesquisa
+        E efetuo a busca
+        Entao devera ser exibido uma imagem de uma batata
