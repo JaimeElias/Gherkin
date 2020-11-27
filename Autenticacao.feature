@@ -3,7 +3,7 @@
 Funcionalidade: Autenticação
     Contexto: Abrir login
         Dado que esteja na home
-        quando Abrir login
+        Quando Abrir login
 
         Esquema do Cenário: Realizar login
             Quando Realizar login com "<user>" e "<senha>" como "<nome>"
@@ -12,21 +12,21 @@ Funcionalidade: Autenticação
             Exemplos:
                 |user           |senha|nome|
                 |test@automation|123  |Aut |
-                |testestestes   |124  |aut2|
 
         Esquema do Cenário:Realizar login Exception
             Quando Realizar login com "<user>" e "<senha>" como "<nome>"
             Entao devera ser exibida a mensagem de erro "<mensagem>"
 
             Exemplos:
-                |user           |senha |nome|mensagem     |
-                |test@automation|000   |Aut |senha errada!|
-                |testautomatico |123   |Aut |user errado! |
+                |user           |senha |nome|mensagem                  |
+                |test@automation|000   |Aut |login ou senha Invalido!  |
+                |testautomatico |123   |Aut |email ou cpf/cnpj Invalido|
 
 
     Contexto: Abrir Cadastro
         Dado que esteja na home
-        Quando abrir Cadastro
+        Quando abrir login
+        Entao deve abrir Cadastro
 
         Esquema do Cenário: Realizar Cadastro
             Quando Realizar Cadastro com "<email>" e "<senha>"
@@ -41,6 +41,9 @@ Funcionalidade: Autenticação
             Entao devera ser exibida a mensagem de erro "<mensagem>"
 
             Exemplos:
-            |email           |senha|mensagem                                                                |
-            |testautomatico  |1234 |O Cadastro não foi realizado com sucesso, verifique os dados informados |
-            |teste@automation|123  |O email informado ja esta sendo utilizado, verifique os dados informados|
+            |email             |senha             |mensagem                      |
+            |email valido      |senha invalida    |login ou senha invalidos!     |
+            |email invalido    |senha valida      |email ou cpf/cnpj Invalido!   |
+            |email ja utilizado|senha             |email ou cpf/cnpj ja utilizado|
+            |cpf invalido      |senha             |email ou cpf/cnpj Invalido!   |
+            |cnpj invalido     |senha             |email ou cpf/cnpj Invalido!   |
